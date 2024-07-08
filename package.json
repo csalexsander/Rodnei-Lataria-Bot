@@ -1,0 +1,26 @@
+{
+  "name": "boterinha",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start": "tsx watch src/."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@types/node": "^20.14.2",
+    "globals": "^15.4.0",
+    "tsx": "^4.15.4",
+    "typescript": "^5.4.5"
+  },
+  "dependencies": {
+    "moment": "^2.30.1",
+    "qrcode-terminal": "^0.12.0",
+    "sqlite": "^5.1.1",
+    "sqlite3": "^5.1.7",
+    "uuidv7": "^1.0.1",
+    "whatsapp-web.js": "github:pedroslopez/whatsapp-web.js#webpack-exodus"
+  }
+}
