@@ -13,6 +13,8 @@ export default class ComandosConstantes {
     static overSharing : string = "/oversharing";
     static sortear : string = "/sortear";
     static nomeCientifico : string = "/streptopelias";
+    static luva : string = "/luva";
+    static jogo : string = "/jogo";
 
     //Perfil    
     static perfil: string = "/perfil";

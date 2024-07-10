@@ -22,6 +22,8 @@ import SortearObserver from "./observers/sortearObserver";
 import SorteioObserver from "./observers/sorteioObserver";
 import MessageSubscriber from "./subscriber/messageSubscriber";
 import NotificationSubscriber from "./subscriber/notificationSubscriber";
+import LuvaObserver from "./observers/luvaOberserver";
+import OJogoObserver from "./observers/ojogoOberver";
 
 const contexto = new Contexto();
 
@@ -36,6 +38,8 @@ messageSubscriber.CadastrarMessageObservers(new AvisoObserver());
 messageSubscriber.CadastrarMessageObservers(new PassaroObserver());
 messageSubscriber.CadastrarMessageObservers(new OversharingObserver());
 messageSubscriber.CadastrarMessageObservers(new SortearObserver());
+messageSubscriber.CadastrarMessageObservers(new LuvaObserver());
+messageSubscriber.CadastrarMessageObservers(new OJogoObserver());
 messageSubscriber.CadastrarMessageObservers(new InfoObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new RolesObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new NovoObserver(contexto));
@@ -54,6 +58,5 @@ notificationSubscriber.CadastrarNotificationObservers(new EntradaObserver());
 notificationSubscriber.CadastrarNotificationObservers(new SaidaObserver());
 
 cadastrarSubscriber(messageSubscriber, notificationSubscriber);
-
 
 client.initialize();

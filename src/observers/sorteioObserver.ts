@@ -26,13 +26,15 @@ export default class SorteioObserver implements IMessageObserver {
             client.sendMessage(message.from, "Este comando apenas funciona em grupos");
             return;
         }
-        
+
         const requisitante = chat.participants.find(x => x.id._serialized === message.author);
         if (!requisitante)
             return;
 
-        if(!requisitante.isAdmin)
+        if (!requisitante.isAdmin) {
+            await client.sendMessage(message.from, "Apenas administratores podem utilizar esse comando. Evolua");
             return;
+        }
 
         let corpoMensagem = UtilMessage.ObterCorpoMensagem(message);
 
