@@ -35,7 +35,7 @@ export default class RoleEtapaPreenchimento {
                 return "Informe o nome do role";
 
             case this.local:
-                return "Informe o local que ocorrerá o role, para auxiliar as pessoas que vão a encontrar o local, informe tambem o endereço e demais informações."
+                return "Informe o local que ocorrerá o role, para auxiliar as pessoas que vão a encontrar o local, informe tambem o endereço e demais informações referente a localização."
 
             case this.data:
                 return "Informe a data do role no formato: DD/MM/AAAA ex 31/12/2024";
