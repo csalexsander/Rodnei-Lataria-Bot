@@ -12,6 +12,6 @@ export default class PassaroObserver implements IMessageObserver {
 
         const numero = UtilMatematica.gerarNumeroAleatorio(1, 8);
 
-        client.sendMessage(message.from, MessageMedia.fromFilePath(`src\\assets\\images\\rolinha_${numero}.jpg`), { isViewOnce: true, quotedMessageId: message.id._serialized });
+        client.sendMessage(message.from, MessageMedia.fromFilePath(`src/assets/images/rolinha_${numero}.jpg`), { isViewOnce: true, quotedMessageId: message.id._serialized });
     }
 }

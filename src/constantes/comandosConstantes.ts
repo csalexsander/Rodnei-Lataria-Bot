@@ -15,6 +15,7 @@ export default class ComandosConstantes {
     static nomeCientifico : string = "/streptopelias";
     static luva : string = "/luva";
     static jogo : string = "/jogo";
+    static piada : string = "/piada";
 
     //Perfil    
     static perfil: string = "/perfil";
