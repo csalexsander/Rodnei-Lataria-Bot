@@ -7,7 +7,7 @@ export default class SortearObserver implements IMessageObserver{
         if(comando != ComandosConstantes.sortear)
             return;
 
-        client.sendMessage(message.from, MessageMedia.fromFilePath(`src\\assets\\audio\\sortear.mp3`), { quotedMessageId: message.id._serialized, mentions : message.mentionedIds });
+        client.sendMessage(message.from, MessageMedia.fromFilePath(`src/assets/audio/sortear.mp3`), { quotedMessageId: message.id._serialized, mentions : message.mentionedIds });
     }
 
 }
