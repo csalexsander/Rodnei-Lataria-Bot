@@ -4,7 +4,6 @@ export default class RoleEtapaPreenchimento {
     static nome: string = "nome";
     static local: string = "local";
     static data: string = "data";
-    static dataErro: string = "dataErro";
     static hora: string = "hora";
     static descricao: string = "descricao";
     static completo: string = "completo";
@@ -12,7 +11,7 @@ export default class RoleEtapaPreenchimento {
 
     static edicaoDeRoleOpcoes: string[] = [this.nome, this.local, this.data, this.hora, this.descricao];
 
-    static obterProximaEtapa(etapaAtual: string, input: string): string {
+    static obterProximaEtapa(etapaAtual: string): string {
         switch (etapaAtual) {
             case this.nome:
                 return this.local;
