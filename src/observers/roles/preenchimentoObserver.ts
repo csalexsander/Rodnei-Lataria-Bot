@@ -101,10 +101,12 @@ export default class PreenchimentoObserver implements IMessageObserver {
         if (role.etapa_preenchimento != RoleEtapaPreenchimento.data)
             return [true, valor];
 
-        const data = moment(valor, "DD/MM/YYYY");
+        console.log(valor)
+        const data = moment(valor, "DD/MM/YYYY",true);
+        console.log(data.isValid())
 
         if (!data.isValid()) {
-            return [false, `A data informada "${valor}" não e uma data valida no padrão DD/MM/AAAA. ex: ${moment().format("DD/MM/YYYY")}. Responda a mesma mensagem com uma data valida`];
+            return [false, `A data informada "${valor}" não é uma data valida no padrão DD/MM/AAAA. ex: ${moment().format("DD/MM/YYYY")}. Responda a mesma mensagem com uma data valida`];
         }
 
         if (data.date < moment().date) {
