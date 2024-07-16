@@ -1,3 +1,5 @@
+import { labels } from "./uiConstantes";
+
 export default class TipoPreenchimentoPerfil {
     static nome: string = "nome";
     static relacionamento: string = "relacionamento";
@@ -15,25 +17,18 @@ export default class TipoPreenchimentoPerfil {
         switch (tipoAtual) {
             case this.nome:
                 return this.relacionamento;
-
             case this.relacionamento:
                 return this.flerte;
-
             case this.flerte:
                 return this.nascimento;
-
             case this.nascimento:
                 return this.orientacao;
-
             case this.orientacao:
                 return this.roles
-
             case this.roles:
                 return this.melhorlugar;
-
             case this.melhorlugar:
                 return this.insta;
-
             case this.insta:
             default:
                 return this.completo;
@@ -43,31 +38,16 @@ export default class TipoPreenchimentoPerfil {
     static obterMensagemPreenchimento(tipo: string): string {
         switch (tipo) {
             case this.nome:
-                return "Informe o seu nome:";
-
             case this.relacionamento:
-                return "Informe o seu estado de relacionamento (Solteiro/Namorando/Casado):";
-
             case this.flerte:
-                return "PV Aberto para flerte? ";
-
             case this.nascimento:
-                return "Informe sua data de nascimento (ex: 01/01/2021): ";
-
             case this.orientacao:
-                return "Informe sua orientação: "
-
             case this.roles:
-                return "Quais os seus roles favoritos? ";
-
             case this.melhorlugar:
-                return "Para você, qual o melhor lugar de São paulo?";
-
             case this.insta:
-                return "Informe seu instagram: "
-
+                return labels.perfil[tipo];
             default:
-                throw new Error("Metodo chamado indevidamente");
+                throw new Error(labels.erroMetodo);
         }
     }
 }

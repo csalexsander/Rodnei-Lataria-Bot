@@ -1,4 +1,5 @@
 import RoleEtapaPreenchimento from "../constantes/roleEtapaPreenchimento";
+import { labels } from "../constantes/uiConstantes";
 import UtilString from "../utils/utilString";
 import UtilData from "../utils/utilData";
 import ParticipanteRole from "./participanteRole";
@@ -65,6 +66,6 @@ export default class Role {
     static obterMensagemEdicaoRole() : string {
         const opcoes = RoleEtapaPreenchimento.edicaoDeRoleOpcoes.map((valor, index) => `*${index + 1}*	${valor}`).join("\n");
 
-        return `Para editar o role, escolha uma das opções abaixo: \n\n${opcoes}`;
+        return labels.role.opcoes.replace("$opcoes", opcoes);
     }
 }

@@ -25,6 +25,8 @@ import NotificationSubscriber from "./subscriber/notificationSubscriber";
 import LuvaObserver from "./observers/luvaOberserver";
 import OJogoObserver from "./observers/ojogoOberver";
 import PiadaObserver from "./observers/piadaObserver";
+import RegrasObserver from "./observers/regrasObserver";
+import AjudaObserver from "./observers/ajudaObserver";
 
 const contexto = new Contexto();
 
@@ -53,6 +55,8 @@ messageSubscriber.CadastrarMessageObservers(new PerfisObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new PerfilViewObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new ContadorMsgObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new PreencherPerfilObserver(contexto));
+messageSubscriber.CadastrarMessageObservers(new RegrasObserver(contexto));
+messageSubscriber.CadastrarMessageObservers(new AjudaObserver(contexto));
 
 const notificationSubscriber = new NotificationSubscriber();
 

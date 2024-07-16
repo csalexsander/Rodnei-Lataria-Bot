@@ -30,6 +30,10 @@ export default class ComandosConstantes {
     static removerRole : string = "/remover";
     static editarRole : string = "/editar";
 
+    //Info
+    static regras : string = "/regras";
+    static ajuda : string = "/ajuda";
+
     // Notification
     static groupJoin: string = Events.GROUP_JOIN;
     static groupLeave: string = Events.GROUP_LEAVE;
