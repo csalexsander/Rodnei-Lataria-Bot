@@ -16,7 +16,7 @@ export const labels: { [key: string]: any } = {
         orientacao : "Informe sua orientação: ",
         roles : "Quais os seus roles favoritos? ",
         melhorlugar : "Para você, qual o melhor lugar de São paulo?",
-        insta : "Para você, qual o melhor lugar de São paulo?"
+        insta : "Informe seu instagram: "
     },
     erroMetodo : "Metodo chamado indevidamente",
 }
