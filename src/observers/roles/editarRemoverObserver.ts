@@ -77,9 +77,9 @@ export default class EditarRemoverObserver implements IMessageObserver {
 
         const roleEditado = await this.repositorio.obterRolePorSequencial(sequencial.toString());
 
-        var mensagem = "Press F to Pay Respect for the Role";
+        var mensagem = "Press F to Pay Respect to the rolê";
         if (roleEditado?.is_visible ?? true)
-            mensagem = "Falha ao remover o role";
+            mensagem = "Falha ao remover o rolê";
 
         client.sendMessage(message.from, mensagem, { quotedMessageId: message.id._serialized });
     }
