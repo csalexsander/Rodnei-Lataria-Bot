@@ -16,7 +16,11 @@ export default class RolesObserver implements IMessageObserver {
         if (comando != ComandosConstantes.roles)
             return;
 
+        console.log("[/roles] Consultando lista de rolês: " + new Date().toISOString())
+        
         const roles = await this.repositorio.listarRolesAtivos();
+
+        console.log("[/roles] Lista de rolês retornadas: " + new Date().toISOString())
 
         if (!roles)
             return;
@@ -24,6 +28,8 @@ export default class RolesObserver implements IMessageObserver {
         const resumo = roles.map(x => Role.obterRoleListagem(x)).join("\n\n");
 
         const mensagem = `*AGENDA*\n------------------------------\n\n${resumo}\n\nPara *Confirmar* a presença, digite */confirmar ID*\nPara *Detalhe* do rolê, digite */info ID*\nPara *Desconfirmar* a presença, digite */miar ID*`;
+
+        console.log("[/roles] Enviando lista de rolês: " + new Date().toISOString())
 
         client.sendMessage(message.from, mensagem);
     }
