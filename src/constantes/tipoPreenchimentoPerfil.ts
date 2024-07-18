@@ -47,7 +47,7 @@ export default class TipoPreenchimentoPerfil {
             case this.insta:
                 return labels.perfil[tipo];
             default:
-                throw new Error(labels.erroMetodo);
+                throw new Error(labels.erro.metodo);
         }
     }
 }

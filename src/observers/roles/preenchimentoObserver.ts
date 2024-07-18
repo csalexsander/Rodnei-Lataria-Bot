@@ -106,7 +106,7 @@ export default class PreenchimentoObserver implements IMessageObserver {
         console.log(data.isValid())
 
         if (!data.isValid()) {
-            return [false, `A data informada "${valor}" não é uma data valida no padrão DD/MM/AAAA. ex: ${moment().format("DD/MM/YYYY")}. Responda a mesma mensagem com uma data valida`];
+            return [false, `A data informada "${valor}" não é uma data valida no padrão DD/MM/AAAA. ex: ${moment().format("DD/MM/YYYY")}. Responda à mesma mensagem com uma data valida`];
         }
 
         if (data.date < moment().date) {

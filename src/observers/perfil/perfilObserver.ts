@@ -43,8 +43,8 @@ export default class PerfilObserver implements IMessageObserver {
     }
 
     async CriarPerfil(chatId: string, contato: Contact, client: Client): Promise<void> {
-        await client.sendMessage(chatId, "Iremos solicitar algumas informações para criar o seu perfil, caso não se sinta confortavel em preencher alguma informação, responda a respectiva mensagem com 'Não Quero Informar' (sem aspas)");
-        const message = await client.sendMessage(chatId, "Informe o seu Nome");
+        await client.sendMessage(chatId, "Iremos solicitar algumas informações para criar o seu perfil, caso não se sinta confortável em preencher alguma informação por favor responda à respectiva mensagem com 'Não Quero Informar'' (sem aspas)");
+        const message = await client.sendMessage(chatId, "Nome");
 
         const perfil = new Perfil(contato.id._serialized, contato.id.user, message.id._serialized, TipoPreenchimentoPerfil.nome, null, null, null, null, null, null, null, null);
 

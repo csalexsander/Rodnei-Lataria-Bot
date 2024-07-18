@@ -22,13 +22,13 @@ export default class InfoObserver implements IMessageObserver {
 
         const corpo = UtilMessage.ObterCorpoMensagem(message);
         if (!corpo) {
-            client.sendMessage(message.from, "É necessário informar o ID do role", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "É necessário informar o ID do rolê", { quotedMessageId: message.id._serialized });
             return;
         }
 
         const sequencial = parseInt(corpo?.trim() ?? "");
         if (!sequencial || isNaN(sequencial)) {
-            client.sendMessage(message.from, "Informe apenas o ID do role que deseja procurar", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "Informe apenas o ID do rolê que deseja procurar", { quotedMessageId: message.id._serialized });
             return;
         }
 
@@ -36,7 +36,7 @@ export default class InfoObserver implements IMessageObserver {
 
         const role = await this.repositorio.obterRoleCompleto(sequencial.toString());
         if (!role) {
-            client.sendMessage(message.from, `O role de Id ${sequencial} não foi encontrado`, { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, `O rolê de ID ${sequencial} não foi encontrado`, { quotedMessageId: message.id._serialized });
             return;
         }
 

@@ -69,7 +69,7 @@ export default class ParticipacaoObserver implements IMessageObserver {
         const confirmarNaoValido = participante && comando == ComandosConstantes.confirmar;
         const miarNaoValido = !participante && comando == ComandosConstantes.miar;
 
-        const mensagem = comando === ComandosConstantes.confirmar ? "Você já esta confirmado no role!" : "Você não esta confirmado no role!";
+        const mensagem = comando === ComandosConstantes.confirmar ? "Você já está confirmado no role!" : "Você não está confirmado no role!";
 
         return { naoValido: confirmarNaoValido || miarNaoValido, mensagem: "", erro: mensagem };
     }

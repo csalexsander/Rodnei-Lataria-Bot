@@ -28,7 +28,13 @@ export default class AjudaObserver implements IMessageObserver {
         "Cancela sua presença em um evento.\n"+
         "\n"+
         "* /roles \n"+
-        "Agenda de eventos.";
+        "Agenda de eventos." +
+        "\n"+
+        "- /perfil\n" +
+        "Permite criar ou alterar seu perfil no Galerinha. Esse comando deve ser usado no privado do bot.\n" +
+        "\n" +
+        "- /perfis \n" +
+        "Permite consultar perfis de membros do Galerinha. Esse comando deve ser usado no privado do bot.\n";
 
         if(comando != ComandosConstantes.ajuda)
             return;

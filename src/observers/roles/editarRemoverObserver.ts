@@ -23,13 +23,13 @@ export default class EditarRemoverObserver implements IMessageObserver {
 
         const corpo = UtilMessage.ObterCorpoMensagem(message);
         if (!corpo) {
-            client.sendMessage(message.from, "É necessário informar o ID do role", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "É necessário informar o ID do rolê", { quotedMessageId: message.id._serialized });
             return;
         }
 
         const sequencial = parseInt(corpo?.trim() ?? "");
         if (!sequencial || isNaN(sequencial)) {
-            client.sendMessage(message.from, "Informe apenas o ID do role", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "Informe apenas o ID do rolê", { quotedMessageId: message.id._serialized });
             return;
         }
 
@@ -46,12 +46,12 @@ export default class EditarRemoverObserver implements IMessageObserver {
         let role = await this.repositorio.obterRolePorSequencial(sequencial.toString());
 
         if (!role) {
-            client.sendMessage(message.from, `Não existe role de id ${sequencial}`, { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, `Não existe rolê de ID ${sequencial}`, { quotedMessageId: message.id._serialized });
             return;
         }
 
         if (role.contact_serialized != contato.id._serialized && !UtilContato.EhAdminGrupoDonoEvento(client, chat, message, role.contact_serialized)) {
-            client.sendMessage(message.from, `Você não tem permissão para Editar ou Deletar o role de id ${sequencial}`, { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, `Você não tem permissão para Editar ou Deletar o rolê de ID ${sequencial}`, { quotedMessageId: message.id._serialized });
             return;
         }
 

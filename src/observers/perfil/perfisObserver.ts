@@ -5,6 +5,7 @@ import Contexto from "../../database/context";
 import ComandosConstantes from "../../constantes/comandosConstantes";
 import UtilChat from "../../utils/utilChat";
 import PerfilViewRepository from "../../repositorios/perfilViewRepository";
+import { labels } from "../../constantes/uiConstantes";
 
 export default class PerfisObserver implements IMessageObserver {
 
@@ -26,7 +27,7 @@ export default class PerfisObserver implements IMessageObserver {
             return;
 
         if (UtilChat.EhChatGrupo(chat)) {
-            await client.sendMessage(message.from, "Este comando somente funciona no privado do bot", { quotedMessageId: message.id._serialized });
+            await client.sendMessage(message.from, labels.erro.privadoBot, { quotedMessageId: message.id._serialized });
             return;
         }
 
@@ -40,7 +41,7 @@ export default class PerfisObserver implements IMessageObserver {
         if (!perfis || !perfis.length || perfis.length <= 0)
             return;
 
-        let mensagem = "Escolha o ID de uma pessoa para visualizar o perfil, e responda essa mensagem com o ID desejado\n\n";
+        let mensagem = labels.perfis.idPessoa;
 
         mensagem += perfis.map((nome, index) => `${index + 1} - ${nome} `).join("\n");
 

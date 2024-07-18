@@ -50,13 +50,13 @@ export default class Role {
     }
 
     static obterResumoRole(role: Role): string {
-        return `*${UtilString.valorOuNaoInformado(role.nome)}*\n\n*Local*: ${UtilString.valorOuNaoInformado(role.local)}\n\n*Data*: ${UtilData.obterDataComSemana(UtilString.valorOuNaoInformado(role.data))}\n*Hora:* ${UtilString.valorOuNaoInformado(role.hora)}\n\n${UtilString.valorOuNaoInformado(role.descricao)}\n\nPara *confirmar* digite */confirmar ${role.sequencial}*\nPara *desconfirmar* basta digite */miar ${role.sequencial}*`;
+        return `*${UtilString.valorOuNaoInformado(role.nome)}*\n\n*Local*: ${UtilString.valorOuNaoInformado(role.local)}\n\n*Data*: ${UtilData.obterDataComSemana(UtilString.valorOuNaoInformado(role.data))}\n*Hora:* ${UtilString.valorOuNaoInformado(role.hora)}\n\n${UtilString.valorOuNaoInformado(role.descricao)}\n\nPara *Confirmar*, digite */confirmar ${role.sequencial}*\nPara *Desconfirmar*, basta digitar */miar ${role.sequencial}*`;
     }
 
     static obterRoleCompleto(role: Role): string {
         const participantes = !role.participantes || !role.participantes.length || role.participantes.length <= 0 ? "\n\n\n\n" : ParticipanteRole.ObterNomesParticipantes(role.participantes);
 
-        return `-----*ROLE*-----\n*${UtilString.valorOuNaoInformado(role.nome)}*\n\n*Local*: ${UtilString.valorOuNaoInformado(role.local)}\n\n*Data*: ${UtilData.obterDataComSemana(UtilString.valorOuNaoInformado(role.data))}\n*Hora:* ${UtilString.valorOuNaoInformado(role.hora)}\n\n${UtilString.valorOuNaoInformado(role.descricao)}\n\n*CONFIRMADOS (${role.participantes?.length ?? 0})*\n\n---------------------------${participantes}\n\n---------------------------\n\nPara *confirmar* digite */confirmar ${role.sequencial}*\n\nPara *desconfirmar* basta digite */miar ${role.sequencial}*`;
+        return `-----*ROLE*-----\n*${UtilString.valorOuNaoInformado(role.nome)}*\n\n*Local*: ${UtilString.valorOuNaoInformado(role.local)}\n\n*Data*: ${UtilData.obterDataComSemana(UtilString.valorOuNaoInformado(role.data))}\n*Hora:* ${UtilString.valorOuNaoInformado(role.hora)}\n\n${UtilString.valorOuNaoInformado(role.descricao)}\n\n*CONFIRMADOS (${role.participantes?.length ?? 0})*\n\n---------------------------${participantes}\n\n---------------------------\n\nPara *Confirmar* digite */confirmar ${role.sequencial}*\n\nPara *desconfirmar* basta digite */miar ${role.sequencial}*`;
     }
 
     static obterRoleListagem(role : Role) : string  {

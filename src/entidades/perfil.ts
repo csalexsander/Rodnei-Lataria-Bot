@@ -1,6 +1,7 @@
 import moment from "moment";
 import UtilString from "../utils/utilString";
 import TipoPreenchimentoPerfil from "../constantes/tipoPreenchimentoPerfil";
+import { labels } from "../constantes/uiConstantes";
 
 export default class Perfil {
     contactSerialized: string;
@@ -36,7 +37,14 @@ export default class Perfil {
     static obterResumoPerfil(perfil: Perfil): string {
         const dataNascimento = moment(perfil.nascimento);
         const dataNascimentoValor = dataNascimento.isValid() ? dataNascimento.format("DD/MM") : "Não Informado";
-        return `*PERFIL*\n\n*Nome*:\n\n${UtilString.valorOuNaoInformado(perfil.nome)}\n\n*Relacionamento*:\n\n${UtilString.valorOuNaoInformado(perfil.relacionamento)}\n\n*PV Aberto para Flerte*:\n\n${UtilString.valorOuNaoInformado(perfil.flerte)}\n\n*Data Nascimento*:\n\n${UtilString.valorOuNaoInformado(dataNascimentoValor)}\n\n*Orientação*:\n\n${UtilString.valorOuNaoInformado(perfil.orientacao)}\n\n*Roles*:\n\n${UtilString.valorOuNaoInformado(perfil.roles)}\n\n*Melhor lugar em São Paulo*:\n\n${UtilString.valorOuNaoInformado(perfil.melhorlugar)}\n\n*Instagram*:\n\n${UtilString.valorOuNaoInformado(perfil.insta)}`;
+        return `*PERFIL*\n\n*${labels.perfil.nome}*\n${UtilString.valorOuNaoInformado(perfil.nome)}\n\n` +
+            `*${labels.perfil.relacionamento}*\n${UtilString.valorOuNaoInformado(perfil.relacionamento)}\n\n` + 
+            `*${labels.perfil.flerte}*\n${UtilString.valorOuNaoInformado(perfil.flerte)}\n\n` + 
+            `*${labels.perfil.nascimento}*\n${UtilString.valorOuNaoInformado(moment(perfil.nascimento).format("DD/MM/YYYY"))}\n\n` + 
+            `*${labels.perfil.orientacao}*\n${UtilString.valorOuNaoInformado(perfil.orientacao)}\n\n` + 
+            `*${labels.perfil.roles}*\n${UtilString.valorOuNaoInformado(perfil.roles)}\n\n` + 
+            `*${labels.perfil.melhorlugar}*\n${UtilString.valorOuNaoInformado(perfil.melhorlugar)}\n\n` + 
+            `*${labels.perfil.insta}*\n${UtilString.valorOuNaoInformado(perfil.insta)}`;
     }
 
     static ObterOpcoesEdicao() : string {
