@@ -22,7 +22,7 @@ export const labels: { [key: string]: any } = {
     },
     erro : {
         metodo : "Método chamado indevidamente",
-        apenasPrivado : "⚠ *Este comando somente funciona no privado do bot* ⚠",
-        apenasGrupo : "⚠ *Este comando apenas funciona em grupos* ⚠"
+        apenasPrivado : "⚠ Este comando somente funciona no *privado do bot* ⚠",
+        apenasGrupo : "⚠ Este comando apenas funciona em *grupos* ⚠"
     }
 }

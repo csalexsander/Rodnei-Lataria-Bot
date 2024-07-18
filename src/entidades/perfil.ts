@@ -50,6 +50,6 @@ export default class Perfil {
     static ObterOpcoesEdicao() : string {
         const opcoes = TipoPreenchimentoPerfil.edicaoPerfilOpcoes.map((valor, index) => `*${index + 1}*	${valor}`).join("\n");
 
-        return `Para editar o seu perfil, *responda esta mensagem* com uma das opções numéricas abaixo: \n\n${opcoes}`;
+        return `Para editar o seu perfil, *responda a esta mensagem* com uma das opções numéricas abaixo: \n\n${opcoes} \n\nSerá enviada uma mensagem solicitando a nova informação, *responda à ela* para atualizar o seu perfil.`;
     }
 }
