@@ -23,7 +23,7 @@ export default class RolesObserver implements IMessageObserver {
 
         const resumo = roles.map(x => Role.obterRoleListagem(x)).join("\n\n");
 
-        const mensagem = `*AGENDA*\n\n---------------\n\n${resumo}\n\nPara *Confirmar* a presença, digite */confirmar ID*\n\nPara *Detalhe* do rolê, digite */info ID*\n\nPara *Desconfirmar* a presença, digite */miar ID*`;
+        const mensagem = `*AGENDA*\n------------------------------\n\n${resumo}\n\nPara *Confirmar* a presença, digite */confirmar ID*\nPara *Detalhe* do rolê, digite */info ID*\nPara *Desconfirmar* a presença, digite */miar ID*`;
 
         client.sendMessage(message.from, mensagem);
     }
