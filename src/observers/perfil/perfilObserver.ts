@@ -6,6 +6,7 @@ import PerfilRepository from "../../repositorios/perfilRepository";
 import Contexto from "../../database/context";
 import Perfil from "../../entidades/perfil";
 import TipoPreenchimentoPerfil from "../../constantes/tipoPreenchimentoPerfil";
+import { labels } from "../../constantes/uiConstantes";
 
 export default class PerfilObserver implements IMessageObserver {
 
@@ -25,7 +26,7 @@ export default class PerfilObserver implements IMessageObserver {
             return;
 
         if (UtilChat.EhChatGrupo(chat)) {
-            await client.sendMessage(message.from, "Este comando somente funciona no privado do bot", { quotedMessageId: message.id._serialized });
+            await client.sendMessage(message.from, labels.erro.apenasPrivado, { quotedMessageId: message.id._serialized });
             return;
         }
 

@@ -3,6 +3,7 @@ import IMessageObserver from "../interface/observers/IMessageObserver";
 import ComandosConstantes from "../constantes/comandosConstantes";
 import UtilChat from "../utils/utilChat";
 import UtilMessage from "../utils/utilMessage";
+import { labels } from "../constantes/uiConstantes";
 
 export default class AvisoObserver implements IMessageObserver {
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
@@ -15,7 +16,7 @@ export default class AvisoObserver implements IMessageObserver {
             return;
 
         if (!UtilChat.EhChatGrupo(chat)) {
-            client.sendMessage(message.from, "Este comando apenas funciona em grupos");
+            client.sendMessage(message.from, labels.erro.apenasGrupo);
             return;
         }
 

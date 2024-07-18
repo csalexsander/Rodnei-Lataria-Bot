@@ -23,7 +23,7 @@ export default class SorteioObserver implements IMessageObserver {
             return;
 
         if (!UtilChat.EhChatGrupo(chat)) {
-            client.sendMessage(message.from, "Este comando apenas funciona em grupos");
+            client.sendMessage(message.from, labels.erro.apenasPublico);
             return;
         }
 

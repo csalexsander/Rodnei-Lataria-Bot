@@ -40,7 +40,7 @@ export default class Perfil {
         return `*PERFIL*\n\n*${labels.perfil.nome}*\n${UtilString.valorOuNaoInformado(perfil.nome)}\n\n` +
             `*${labels.perfil.relacionamento}*\n${UtilString.valorOuNaoInformado(perfil.relacionamento)}\n\n` + 
             `*${labels.perfil.flerte}*\n${UtilString.valorOuNaoInformado(perfil.flerte)}\n\n` + 
-            `*${labels.perfil.nascimento}*\n${UtilString.valorOuNaoInformado(moment(perfil.nascimento).format("DD/MM"))}\n\n` + 
+            `*${labels.perfil.nascimento}*\n${UtilString.valorOuNaoInformado(dataNascimentoValor)}\n\n` + 
             `*${labels.perfil.orientacao}*\n${UtilString.valorOuNaoInformado(perfil.orientacao)}\n\n` + 
             `*${labels.perfil.roles}*\n${UtilString.valorOuNaoInformado(perfil.roles)}\n\n` + 
             `*${labels.perfil.melhorlugar}*\n${UtilString.valorOuNaoInformado(perfil.melhorlugar)}\n\n` + 
@@ -50,6 +50,6 @@ export default class Perfil {
     static ObterOpcoesEdicao() : string {
         const opcoes = TipoPreenchimentoPerfil.edicaoPerfilOpcoes.map((valor, index) => `*${index + 1}*	${valor}`).join("\n");
 
-        return `Para editar o seu perfil, escolha uma das opções abaixo: \n\n${opcoes}`;
+        return `Para editar o seu perfil, *responda esta mensagem* com uma das opções numéricas abaixo: \n\n${opcoes}`;
     }
 }

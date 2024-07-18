@@ -1,7 +1,7 @@
 export const labels: { [key: string]: any } = {
     role : {
         nome : "Informe o nome do rolê",
-        local : "Informe o local que ocorrerá o role, para auxiliar as pessoas que vão a encontrar o local, informe tambem o endereço e demais informações referente a localização.",
+        local : "Informe o local que ocorrerá o rolê incluindo endereço, pontos de referência e nome (se houver).",
         data : "Informe a data do rolê no formato: DD/MM/AAAA ex 31/12/2024",
         hora : "Informe o horário de início do rolê e/ou o horário de encontro",
         descricao : "Insira uma descrição para o rolê explicando do que se trata, descrevendo o espaço e convencendo todos a comparecerem. Capriche!",
@@ -22,6 +22,7 @@ export const labels: { [key: string]: any } = {
     },
     erro : {
         metodo : "Método chamado indevidamente",
-        privadoBot : "Este comando somente funciona no privado do bot"
+        apenasPrivado : "⚠ *Este comando somente funciona no privado do bot* ⚠",
+        apenasGrupo : "⚠ *Este comando apenas funciona em grupos* ⚠"
     }
 }
