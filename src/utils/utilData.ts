@@ -19,6 +19,6 @@ export default class UtilData {
 
       const weekDay = semanaDias[date.getDay()];
 
-      return `${weekDay} - ${data}`;
+      return `${data} - ${weekDay}`;
   }
 }
