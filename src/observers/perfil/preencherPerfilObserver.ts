@@ -18,7 +18,8 @@ export default class PreencherPerfilObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando !== ComandosConstantes.mensagemRecebida)
+        
+        if (!UtilString.compararString(comando, ComandosConstantes.mensagemRecebida))
             return;
 
         const chat = await message.getChat();

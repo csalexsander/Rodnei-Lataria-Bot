@@ -2,12 +2,13 @@ import { Message, Client, MessageMedia } from "whatsapp-web.js";
 import IMessageObserver from "../interface/observers/IMessageObserver";
 import ComandosConstantes from "../constantes/comandosConstantes";
 import UtilMatematica from "../utils/utilMatematica";
+import UtilString from "../utils/utilString";
 
 const comandos = [ComandosConstantes.passaro, ComandosConstantes.nomeCientifico]
 
 export default class PassaroObserver implements IMessageObserver {
     Executar(comando: string, message: Message, client: Client): void {
-        if (!comandos.some(x => x === comando))
+        if (!comandos.some(x => UtilString.compararString(x, comando)))
             return;
 
         const numero = UtilMatematica.gerarNumeroAleatorio(1, 8);

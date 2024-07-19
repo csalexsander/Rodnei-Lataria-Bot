@@ -4,6 +4,8 @@ import ComandosConstantes from "../constantes/comandosConstantes";
 import SorteioService from "../service/sorteioService";
 import UtilChat from "../utils/utilChat";
 import UtilMessage from "../utils/utilMessage";
+import UtilString from "../utils/utilString";
+import { labels } from "../constantes/uiConstantes";
 
 export default class SorteioObserver implements IMessageObserver {
 
@@ -14,7 +16,7 @@ export default class SorteioObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.sorteio)
+        if (!UtilString.compararString(comando, ComandosConstantes.sorteio))
             return;
 
         const chat = await message.getChat();
@@ -23,7 +25,7 @@ export default class SorteioObserver implements IMessageObserver {
             return;
 
         if (!UtilChat.EhChatGrupo(chat)) {
-            client.sendMessage(message.from, labels.erro.apenasPublico);
+            client.sendMessage(message.from, labels.erro.apenasGrupo);
             return;
         }
 

@@ -4,10 +4,11 @@ import ComandosConstantes from "../constantes/comandosConstantes";
 import UtilChat from "../utils/utilChat";
 import UtilMessage from "../utils/utilMessage";
 import { labels } from "../constantes/uiConstantes";
+import UtilString from "../utils/utilString";
 
 export default class AvisoObserver implements IMessageObserver {
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.aviso)
+        if (!UtilString.compararString(comando, ComandosConstantes.aviso))
             return;
 
         const chat = await message.getChat();

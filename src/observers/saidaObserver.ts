@@ -1,10 +1,11 @@
 import { GroupNotification, Client, GroupNotificationTypes } from "whatsapp-web.js";
 import INotificationObserver from "../interface/observers/INotificationOberver";
 import ComandosConstantes from "../constantes/comandosConstantes";
+import UtilString from "../utils/utilString";
 
 export default class SaidaObserver implements INotificationObserver {
     async Executar(comando: string, notification: GroupNotification, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.groupLeave)
+        if (!UtilString.compararString(comando, ComandosConstantes.groupLeave))
             return;
 
         var contato = await client.getContactById(notification.id.participant);

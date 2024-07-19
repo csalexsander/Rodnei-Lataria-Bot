@@ -18,7 +18,7 @@ export default class EditarRemoverObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (!comando || !this.comandos.some(x => x === comando))
+        if (!comando || !this.comandos.some(x => x.toLowerCase() === comando.toLowerCase()))
             return;
 
         const corpo = UtilMessage.ObterCorpoMensagem(message);

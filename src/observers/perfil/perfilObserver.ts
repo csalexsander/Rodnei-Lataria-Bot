@@ -7,6 +7,7 @@ import Contexto from "../../database/context";
 import Perfil from "../../entidades/perfil";
 import TipoPreenchimentoPerfil from "../../constantes/tipoPreenchimentoPerfil";
 import { labels } from "../../constantes/uiConstantes";
+import UtilString from "../../utils/utilString";
 
 export default class PerfilObserver implements IMessageObserver {
 
@@ -17,7 +18,7 @@ export default class PerfilObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando !== ComandosConstantes.perfil)
+        if (!UtilString.compararString(comando, ComandosConstantes.perfil))
             return;
 
         const chat = await message.getChat();

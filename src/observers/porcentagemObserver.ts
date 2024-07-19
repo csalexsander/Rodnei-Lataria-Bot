@@ -4,6 +4,7 @@ import ChaveValorDto from "../dto/chaveValorDto";
 import PorcentagemService from "../service/porcentagemService";
 import UtilMessage from "../utils/utilMessage";
 import ComandosConstantes from "../constantes/comandosConstantes";
+import UtilString from "../utils/utilString";
 
 export default class PorcentagemObserver implements IMessageObserver {
     public readonly comandoPorcentagem = [
@@ -18,7 +19,7 @@ export default class PorcentagemObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        var percentDe = this.comandoPorcentagem.find(x => x.chave === comando);
+        var percentDe = this.comandoPorcentagem.find(x => UtilString.compararString(x.chave, comando));
 
         if (!percentDe)
             return;

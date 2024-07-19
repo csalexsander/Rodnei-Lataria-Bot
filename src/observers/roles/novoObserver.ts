@@ -6,6 +6,7 @@ import ComandosConstantes from "../../constantes/comandosConstantes";
 import Role from "../../entidades/role";
 import RoleEtapaPreenchimento from "../../constantes/roleEtapaPreenchimento";
 import { uuidv7 } from "uuidv7";
+import UtilString from "../../utils/utilString";
 
 export default class NovoObserver implements IMessageObserver {
     private repositorio: RolesRepository;
@@ -15,7 +16,7 @@ export default class NovoObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.novoRole)
+        if (!UtilString.compararString(comando, ComandosConstantes.novoRole))
             return;
 
         const contato = await message.getContact();

@@ -1,10 +1,11 @@
 import { GroupNotification, Client, MessageMedia, MessageTypes } from "whatsapp-web.js";
 import INotificationObserver from "../interface/observers/INotificationOberver";
 import ComandosConstantes from "../constantes/comandosConstantes";
+import UtilString from "../utils/utilString";
 
 export default class EntradaObserver implements INotificationObserver {
     async Executar(comando: string, notification: GroupNotification, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.groupJoin)
+        if (!UtilString.compararString(comando, ComandosConstantes.groupJoin))
             return;
 
         var contato = await client.getContactById(notification.id.participant);

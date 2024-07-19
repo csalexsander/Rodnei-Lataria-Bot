@@ -6,6 +6,7 @@ import ComandosConstantes from "../../constantes/comandosConstantes";
 import UtilMessage from "../../utils/utilMessage";
 import Role from "../../entidades/role";
 import PerfilRepository from "../../repositorios/perfilRepository";
+import UtilString from "../../utils/utilString";
 
 export default class InfoObserver implements IMessageObserver {
     private repositorio: RolesRepository;
@@ -17,7 +18,7 @@ export default class InfoObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.info)
+        if (!UtilString.compararString(comando, ComandosConstantes.info))
             return;
 
         const corpo = UtilMessage.ObterCorpoMensagem(message);

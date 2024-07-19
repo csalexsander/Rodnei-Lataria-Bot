@@ -6,6 +6,7 @@ import ComandosConstantes from "../../constantes/comandosConstantes";
 import UtilChat from "../../utils/utilChat";
 import PerfilViewRepository from "../../repositorios/perfilViewRepository";
 import { labels } from "../../constantes/uiConstantes";
+import UtilString from "../../utils/utilString";
 
 export default class PerfisObserver implements IMessageObserver {
 
@@ -18,7 +19,7 @@ export default class PerfisObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.perfis)
+        if (!UtilString.compararString(comando, ComandosConstantes.perfis))
             return;
 
         const chat = await message.getChat();
