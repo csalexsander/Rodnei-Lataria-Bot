@@ -21,6 +21,8 @@ export default class ComandosConstantes {
     static perfil: string = "/perfil";
     static perfis: string = "/perfis";
 
+    static sticker: string = "/sticker";
+
     //Roles
     static novoRole : string = "/novo";
     static confirmar : string = "/confirmar";

@@ -75,7 +75,7 @@ export default class ParticipacaoObserver implements IMessageObserver {
     }
 
     private validarOperacaoComSucesso(participante: ParticipanteRole | null, comando: string): validacaoParticipante {
-        let mensagemSucesso = comando === ComandosConstantes.confirmar ? "Tudo certo!" : "miau...";
+        let mensagemSucesso = comando === ComandosConstantes.confirmar ? "Tudo certo!" : "Miau...";
         let mensagemFalha = comando === ComandosConstantes.confirmar ? "Ocorreu uma falha ao tentar te confirmar no role" : "Ocorreu uma falha ao tentar miar o role";
 
         const confirmarNaoValido = !participante && comando == ComandosConstantes.confirmar;
