@@ -10,33 +10,38 @@ export default class StickerObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        
-        if (!UtilString.compararString(comando, ComandosConstantes.sticker))
-            return;
+        try {
+                
+            if (!UtilString.compararString(comando, ComandosConstantes.sticker))
+                return;
 
-        if (!message.hasQuotedMsg) {
-            client.sendMessage(message.from, "⚠  Execute este comando respondando a uma mensagem com imagem.");
-            return;
+            if (!message.hasQuotedMsg) {
+                client.sendMessage(message.from, "⚠  Execute este comando respondando a uma mensagem com imagem.");
+                return;
+            }
+
+            const quotedMsg = await message.getQuotedMessage();
+
+            if (!quotedMsg.hasMedia){
+                client.sendMessage(message.from, "⚠  A mensagem precisa ter uma imagem.");
+                return;
+            }
+
+            const media = await quotedMsg.downloadMedia();
+
+            if (quotedMsg.rawData.isViewOnce){
+                client.sendMessage(message.from, "⚠  Não é possível fazer sticker de imagem de visualização única.");
+                return;
+            }
+
+            client.sendMessage(message.from, media, { 
+                sendMediaAsSticker: true, 
+                stickerAuthor: '[Galerinha Bot]'
+            });
         }
-
-        const quotedMsg = await message.getQuotedMessage();
-
-        if (!quotedMsg.hasMedia){
-            client.sendMessage(message.from, "⚠  A mensagem precisa ter uma imagem.");
-            return;
+        catch (e){
+            console.log(e);
         }
-
-        const media = await quotedMsg.downloadMedia();
-
-        if (quotedMsg.rawData.isViewOnce){
-            client.sendMessage(message.from, "⚠  Não é possível fazer sticker de imagem de visualização única.");
-            return;
-        }
-
-        client.sendMessage(message.from, media, { 
-            sendMediaAsSticker: true, 
-            stickerAuthor: '[Galerinha Bot]'
-        });
     }
 
 }
