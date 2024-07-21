@@ -12,6 +12,7 @@ export default class UtilChat {
         if (!UtilChat.EhChatGrupo(chat))
             return true;
 
-        return UtilChat.EhChatGrupo(chat) && chatsLiberados.some(x => x === chat.id._serialized);
+        //TODO Revisar, removido validação temporariamente.
+        return UtilChat.EhChatGrupo(chat); //&& chatsLiberados.some(x => x === chat.id._serialized);
     }
 }
