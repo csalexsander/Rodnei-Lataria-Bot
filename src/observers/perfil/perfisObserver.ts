@@ -28,7 +28,7 @@ export default class PerfisObserver implements IMessageObserver {
             return;
 
         if (UtilChat.EhChatGrupo(chat)) {
-            await client.sendMessage(message.from, labels.erro.privadoBot, { quotedMessageId: message.id._serialized });
+            await client.sendMessage(message.from, labels.erro.apenasPrivado, { quotedMessageId: message.id._serialized });
             return;
         }
 
