@@ -1,5 +1,7 @@
+import moment from "moment";
 import Contexto from "../database/context";
 import MensagemRecebida from "../entidades/mensagemRecebida";
+import RankingMensagem from "../entidades/rankingMensagem";
 
 export default class MensagemRecebidaRepository {
     private contexto: Contexto;
@@ -25,6 +27,21 @@ export default class MensagemRecebidaRepository {
         } catch (error) {
             console.log("Ocorreu um erro ao inserir mensagem recebida", error);
             throw error;
+        }
+    }
+    
+    async obterRankingMensagens(date: String): Promise<RankingMensagem[] | null> {
+        try {
+            const dataAtual = moment().format("YYYY-MM-DD");
+
+            const sql = `SELECT contact_number, COUNT (contact_number) as contagem FROM messages
+                            GROUP BY contact_number
+                            ORDER BY contagem DESC;`
+
+            return await this.contexto.listar(sql, [dataAtual]);
+        } catch (error) {
+            console.error("Ocorreu uma falha ao obter o ranking de mensagens");
+            return null;
         }
     }
 }

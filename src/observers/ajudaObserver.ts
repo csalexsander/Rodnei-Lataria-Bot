@@ -3,6 +3,7 @@ import IMessageObserver from "../interface/observers/IMessageObserver";
 import UtilMatematica from "../utils/utilMatematica";
 import ComandosConstantes from "../constantes/comandosConstantes";
 import Contexto from "../database/context";
+import UtilString from "../utils/utilString";
 
 export default class AjudaObserver implements IMessageObserver {
 
@@ -12,25 +13,31 @@ export default class AjudaObserver implements IMessageObserver {
     Executar(comando: string, message: Message, client: Client): void {
             
         const ajudaInfo : string =
-        "* /ajuda \n"+
+        "`/ajuda`\n"+
         "Mostra essa tela de ajuda.\n"+
         "\n"+
-        "* /regras\n"+
+        "`/regras`\n"+
         "Exibe as regras do grupo.\n"+
         "\n"+
-        "* /confirmar ID\n"+
+        "`/confirmar ID`\n"+
         "Confirma sua presença em um evento.\n"+
         "\n"+
-        "* /info ID\n"+
+        "`/info ID`\n"+
         "Mostra informações sobre um evento.\n"+
         "\n"+
-        "* /miar ID\n"+
+        "`/miar ID`\n"+
         "Cancela sua presença em um evento.\n"+
         "\n"+
-        "* /roles \n"+
-        "Agenda de eventos.";
+        "`/roles` \n"+
+        "Agenda de eventos.\n" +
+        "\n"+
+        "`/perfil`\n" + 
+        "Permite criar ou alterar seu perfil no Galerinha. Esse comando deve ser usado no privado do bot.\n" +
+        "\n" +
+        "`/perfis`\n" +
+        "Permite consultar perfis de membros do Galerinha. Esse comando deve ser usado no privado do bot.\n";
 
-        if(comando != ComandosConstantes.ajuda)
+        if (!UtilString.compararString(comando, ComandosConstantes.ajuda))
             return;
        
        client.sendMessage(message.from, ajudaInfo);

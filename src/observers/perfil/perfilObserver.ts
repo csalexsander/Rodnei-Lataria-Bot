@@ -6,6 +6,8 @@ import PerfilRepository from "../../repositorios/perfilRepository";
 import Contexto from "../../database/context";
 import Perfil from "../../entidades/perfil";
 import TipoPreenchimentoPerfil from "../../constantes/tipoPreenchimentoPerfil";
+import { labels } from "../../constantes/uiConstantes";
+import UtilString from "../../utils/utilString";
 
 export default class PerfilObserver implements IMessageObserver {
 
@@ -16,7 +18,7 @@ export default class PerfilObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando !== ComandosConstantes.perfil)
+        if (!UtilString.compararString(comando, ComandosConstantes.perfil))
             return;
 
         const chat = await message.getChat();
@@ -25,7 +27,7 @@ export default class PerfilObserver implements IMessageObserver {
             return;
 
         if (UtilChat.EhChatGrupo(chat)) {
-            await client.sendMessage(message.from, "Este comando somente funciona no privado do bot", { quotedMessageId: message.id._serialized });
+            await client.sendMessage(message.from, labels.erro.apenasPrivado, { quotedMessageId: message.id._serialized });
             return;
         }
 
@@ -43,8 +45,8 @@ export default class PerfilObserver implements IMessageObserver {
     }
 
     async CriarPerfil(chatId: string, contato: Contact, client: Client): Promise<void> {
-        await client.sendMessage(chatId, "Iremos solicitar algumas informações para criar o seu perfil, caso não se sinta confortavel em preencher alguma informação, responda a respectiva mensagem com 'Não Quero Informar' (sem aspas)");
-        const message = await client.sendMessage(chatId, "Informe o seu Nome");
+        await client.sendMessage(chatId, "Iremos solicitar algumas informações para criar o seu perfil, *responda às mensagens* para o preenchimento\n\nCaso não se sinta confortável em preencher alguma informação por favor *responda à respectiva mensagem* com 'Não Quero Informar' (sem aspas).");
+        const message = await client.sendMessage(chatId, labels.perfil.nome);
 
         const perfil = new Perfil(contato.id._serialized, contato.id.user, message.id._serialized, TipoPreenchimentoPerfil.nome, null, null, null, null, null, null, null, null);
 

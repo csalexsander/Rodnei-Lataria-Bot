@@ -6,6 +6,7 @@ import ComandosConstantes from "../../constantes/comandosConstantes";
 import UtilMessage from "../../utils/utilMessage";
 import Role from "../../entidades/role";
 import PerfilRepository from "../../repositorios/perfilRepository";
+import UtilString from "../../utils/utilString";
 
 export default class InfoObserver implements IMessageObserver {
     private repositorio: RolesRepository;
@@ -17,18 +18,18 @@ export default class InfoObserver implements IMessageObserver {
     }
 
     async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        if (comando != ComandosConstantes.info)
+        if (!UtilString.compararString(comando, ComandosConstantes.info))
             return;
 
         const corpo = UtilMessage.ObterCorpoMensagem(message);
         if (!corpo) {
-            client.sendMessage(message.from, "É necessário informar o ID do role", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "É necessário informar o ID do rolê", { quotedMessageId: message.id._serialized });
             return;
         }
 
         const sequencial = parseInt(corpo?.trim() ?? "");
         if (!sequencial || isNaN(sequencial)) {
-            client.sendMessage(message.from, "Informe apenas o ID do role que deseja procurar", { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, "Informe apenas o ID do rolê que deseja procurar", { quotedMessageId: message.id._serialized });
             return;
         }
 
@@ -36,7 +37,7 @@ export default class InfoObserver implements IMessageObserver {
 
         const role = await this.repositorio.obterRoleCompleto(sequencial.toString());
         if (!role) {
-            client.sendMessage(message.from, `O role de Id ${sequencial} não foi encontrado`, { quotedMessageId: message.id._serialized });
+            client.sendMessage(message.from, `O rolê de ID ${sequencial} não foi encontrado`, { quotedMessageId: message.id._serialized });
             return;
         }
 
