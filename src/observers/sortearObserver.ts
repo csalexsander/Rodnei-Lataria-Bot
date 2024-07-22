@@ -4,11 +4,12 @@ import ComandosConstantes from "../constantes/comandosConstantes";
 import UtilString from "../utils/utilString";
 
 export default class SortearObserver implements IMessageObserver{
-    Executar(comando: string, message: Message, client: Client): void {
+    async Executar(comando: string, message: Message, client: Client): Promise<void> {
         if (!UtilString.compararString(comando, ComandosConstantes.sortear))
             return;
 
-        client.sendMessage(message.from, MessageMedia.fromFilePath(`src/assets/audio/sortear.mp3`), { quotedMessageId: message.id._serialized, mentions : message.mentionedIds });
-    }
+        const quotedMessage = await message.getQuotedMessage();
 
+        client.sendMessage(message.from, MessageMedia.fromFilePath(`src/assets/audio/sortear.mp3`), { quotedMessageId: quotedMessage?.id?._serialized ?? message.id._serialized, mentions : message.mentionedIds });
+    }
 }

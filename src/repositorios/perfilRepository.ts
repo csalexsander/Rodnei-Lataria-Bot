@@ -67,7 +67,7 @@ export default class PerfilRepository {
 
     async obterTodosNomesPerfis(): Promise<string[] | null> {
         try {
-            const sql = `SELECT COALESCE(nome,contact_number) as retorno FROM profiles order by COALESCE(nome,contact_number) asc`;
+            const sql = `SELECT COALESCE(nome,contact_number) as retorno FROM profiles order by COALESCE(lower(nome),contact_number) asc`;
 
             const retorno = await this.contexto.listar(sql);
 
