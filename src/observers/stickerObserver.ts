@@ -9,8 +9,7 @@ export default class StickerObserver implements IMessageObserver {
     constructor(contexto: Contexto) {
     }
 
-    async Executar(comando: string, message: Message, client: Client): Promise<void> {
-        
+    async Executar(comando: string, message: Message, client: Client): Promise<void> {        
         if (!UtilString.compararString(comando, ComandosConstantes.sticker))
             return;
 
