@@ -22,9 +22,14 @@ export default class MessageSubscriber {
 
         if (!comando)
             comando = ComandosConstantes.mensagemRecebida;
-
+        
         this.ComandosObservers.forEach(observer => {
-            observer.Executar(comando, message, client)
+            try {
+                observer.Executar(comando, message, client)
+            }
+            catch (e) {
+                console.error(`[${observer.constructor.name}] Erro ao processar comando`, e);
+            }
         });
     }
 }

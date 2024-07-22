@@ -17,7 +17,12 @@ export default class NotificationSubscriber {
             return;
 
         this.observers.forEach(observer => {
-            observer.Executar(comando, message, client)
+            try {
+                observer.Executar(comando, message, client)
+            }
+            catch (e) {
+                console.error(`[${observer.constructor.name}] Erro ao processar comando`, e);
+            }
         });
     }
 }
