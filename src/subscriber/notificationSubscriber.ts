@@ -16,8 +16,14 @@ export default class NotificationSubscriber {
         if (!this.observers || this.observers.length === 0 || !comando)
             return;
 
-        this.observers.forEach(observer => {
-            observer.Executar(comando, message, client)
-        });
+            this.observers.forEach(observer => {
+                try {
+                    observer.Executar(comando, message, client)
+                }
+                catch (e) {
+                    console.error(`[${observer.constructor.name}] Erro ao processar comando`, e);
+                }
+            });
+        }
     }
 }
