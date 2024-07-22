@@ -9,13 +9,13 @@ export const labels: { [key: string]: any } = {
     },
     perfil : {
         nome : "Nome",
-        relacionamento : "*[Responda à essa mensagem]*\nStatus de Relacionamento (Solteire/Casade/Namorando/etc)",
-        flerte : "*[Responda à essa mensagem]*\nPV Aberto para flerte?",
-        nascimento : "*[Responda à essa mensagem]*\nData de Nascimento em formato DD/MM/AAAA (ex: 18/06/1989)",
-        orientacao : "*[Responda à essa mensagem]*\nOrientação Sexual e Pronomes",
-        roles : "*[Responda à essa mensagem]*\nTipos Preferidos de Rolê",
-        melhorlugar : "*[Responda à essa mensagem]*\nMelhor Rolê de São Paulo",
-        insta : "*[Responda à essa mensagem]*\nPerfil do Instagram"
+        relacionamento : "Status de Relacionamento (Solteire/Casade/Namorando/etc)",
+        flerte : "PV Aberto para flerte?",
+        nascimento : "Data de Nascimento em formato DD/MM/AAAA (ex: 18/06/1989)",
+        orientacao : "Orientação Sexual e Pronomes",
+        roles : "Tipos Preferidos de Rolê",
+        melhorlugar : "Melhor Rolê de São Paulo",
+        insta : "Perfil do Instagram"
     },
     perfis : {
         idPessoa : "Escolha o ID de uma pessoa para visualizar o perfil, e responda essa mensagem com o ID desejado\n\n"
