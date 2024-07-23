@@ -169,7 +169,7 @@ export default class Contexto {
 
             const result = await this.db.get(sql, parametros);
 
-            console.log("Dados obtidos com sucesso");
+            console.log(`Dados obtidos com sucesso: ${sql}`);
 
             return result as T;
         } catch (error) {
@@ -190,7 +190,7 @@ export default class Contexto {
             else
                 result = await this.db.all(sql);
 
-            console.log("Dados obtidos com sucesso");
+            console.log(`Dados obtidos com sucesso: ${sql}`);
 
             return result;
         } catch (error) {
