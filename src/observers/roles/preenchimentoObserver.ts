@@ -7,6 +7,7 @@ import RoleEtapaPreenchimento from "../../constantes/roleEtapaPreenchimento";
 import Role from "../../entidades/role";
 import UtilContato from "../../utils/UtilContato";
 import moment from "moment";
+import { labels } from "../../constantes/uiConstantes";
 
 export default class PreenchimentoObserver implements IMessageObserver {
     private repositorio: RolesRepository;
@@ -28,6 +29,14 @@ export default class PreenchimentoObserver implements IMessageObserver {
 
         if (!quotedMessage)
             return;
+
+        //Se não estiver respondendo à uma instrução de criar/editar rolê, não checa se tem rolê à preencher.
+        if (quotedMessage.body !== labels.role.nome &&
+            quotedMessage.body !== labels.role.local &&
+            quotedMessage.body !== labels.role.data &&
+            quotedMessage.body !== labels.role.hora){
+            return 
+        }
 
         const chat = await message.getChat();
 
