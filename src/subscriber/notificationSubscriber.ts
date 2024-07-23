@@ -18,12 +18,10 @@ export default class NotificationSubscriber {
 
         this.observers.forEach(observer => {
             try {
-                console.log(`[${observer.constructor.name}] ${new Date().toISOString()} | Iniciar execução...: `);
                 observer.Executar(comando, message, client)
-                console.log(`[${observer.constructor.name}] ${new Date().toISOString()} | Executado...: `);
             }
             catch (e) {
-                console.error(`[${observer.constructor.name}] ${new Date().toISOString()} | Erro ao processar comando`, e);
+                console.error(`[${observer.constructor.name}] Erro ao processar comando`, e);
             }
         });
     }
