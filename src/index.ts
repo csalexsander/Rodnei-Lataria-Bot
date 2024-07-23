@@ -54,7 +54,7 @@ messageSubscriber.CadastrarMessageObservers(new PreenchimentoObserver(contexto))
 messageSubscriber.CadastrarMessageObservers(new PerfilObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new PerfisObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new PerfilViewObserver(contexto));
-messageSubscriber.CadastrarMessageObservers(new ContadorMsgObserver(contexto));
+//messageSubscriber.CadastrarMessageObservers(new ContadorMsgObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new PreencherPerfilObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new RegrasObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new AjudaObserver(contexto));

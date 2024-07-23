@@ -51,7 +51,7 @@ export default class PerfilRepository {
                     message_serialized as messageSerialized,
                     tipo_preenchimento as tipoPreenchimento,
                     is_edit as isEdit
-                    FROM profiles order by nome asc`;
+                    FROM profiles order by COALESCE(lower(nome),contact_number) asc`;
 
             const result = await this.contexto.listar(sql);
 
