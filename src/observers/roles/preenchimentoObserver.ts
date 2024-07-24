@@ -30,14 +30,6 @@ export default class PreenchimentoObserver implements IMessageObserver {
         if (!quotedMessage)
             return;
 
-        //Se não estiver respondendo à uma instrução de criar/editar rolê, não checa se tem rolê à preencher.
-        if (quotedMessage.body !== labels.role.nome &&
-            quotedMessage.body !== labels.role.local &&
-            quotedMessage.body !== labels.role.data &&
-            quotedMessage.body !== labels.role.hora){
-            return 
-        }
-
         const chat = await message.getChat();
 
         if (!chat)
