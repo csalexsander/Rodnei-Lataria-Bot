@@ -32,6 +32,9 @@ export default class ComandosConstantes {
     static removerRole : string = "/remover";
     static editarRole : string = "/editar";
 
+    //Estatistica
+    static maisFalante: string = "/mais-falante";
+
     //Info
     static regras : string = "/regras";
     static ajuda : string = "/ajuda";
