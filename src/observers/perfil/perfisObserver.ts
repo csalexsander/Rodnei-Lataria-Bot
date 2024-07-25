@@ -36,6 +36,8 @@ export default class PerfisObserver implements IMessageObserver {
 
         if (!contato || !contato.id._serialized)
             return;
+        
+        console.log(`[/perfis] ${new Date().toISOString()} Obtendo lista de perfis`)
 
         const perfis = await this.repositorio.obterTodosNomesPerfis();
 
@@ -46,7 +48,11 @@ export default class PerfisObserver implements IMessageObserver {
 
         mensagem += perfis.map((nome, index) => `${index + 1} - ${nome} `).join("\n");
 
+        console.log(`[/perfis] ${new Date().toISOString()} Enviando lista de perfis`)
+
         const mensagemEnviada = await client.sendMessage(message.from, mensagem);
+
+        console.log(`[/perfis] ${new Date().toISOString()} Lista de perfis enviada`)
 
         this.repositorioView.upInsert(contato.id._serialized, mensagemEnviada.id._serialized);
     }

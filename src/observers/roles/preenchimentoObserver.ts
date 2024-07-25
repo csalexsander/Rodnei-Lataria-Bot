@@ -7,6 +7,7 @@ import RoleEtapaPreenchimento from "../../constantes/roleEtapaPreenchimento";
 import Role from "../../entidades/role";
 import UtilContato from "../../utils/UtilContato";
 import moment from "moment";
+import { labels } from "../../constantes/uiConstantes";
 
 export default class PreenchimentoObserver implements IMessageObserver {
     private repositorio: RolesRepository;

@@ -13,6 +13,9 @@ export default class UtilChat {
             return true;
 
         //TODO Revisar, removido validação temporariamente.
+        if (process.env.NODE_ENV == 'development') {
+            return chat.name == 'Teste';
+        }
         return UtilChat.EhChatGrupo(chat); //&& chatsLiberados.some(x => x === chat.id._serialized);
     }
 }

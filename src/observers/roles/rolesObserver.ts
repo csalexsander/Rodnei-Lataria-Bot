@@ -31,7 +31,7 @@ export default class RolesObserver implements IMessageObserver {
 
         console.log(`[/roles] ${new Date().toISOString()} Enviando lista de rolês`)
 
-        client.sendMessage(message.from, mensagem);
+        await client.sendMessage(message.from, mensagem);
 
         console.log(`[/roles] ${new Date().toISOString()} Lista enviada`)
     }

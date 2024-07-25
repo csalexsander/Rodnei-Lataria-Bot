@@ -11,7 +11,9 @@ const wwebVersion = '2.2407.3';
 const client = new Client({
     authStrategy: new LocalAuth(),
     puppeteer: {
-        headless: true , args: ['--no-sandbox', '--disable-setuid-sandbox'],
+        headless: true , args: [
+            '--no-sandbox', '--disable-setuid-sandbox'
+        ],
       },
       webVersionCache: {
           type: 'remote',

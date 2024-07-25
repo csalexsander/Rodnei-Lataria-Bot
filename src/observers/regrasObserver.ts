@@ -10,7 +10,7 @@ export default class RegrasObserver implements IMessageObserver {
     constructor(contexto: Contexto) {
     }
 
-    Executar(comando: string, message: Message, client: Client): void {
+    async Executar(comando: string, message: Message, client: Client): Promise<void> {
             
         const regrasInfo : string =
             "*REGRAS BÁSICAS*\n" +
@@ -47,7 +47,7 @@ export default class RegrasObserver implements IMessageObserver {
         if (!UtilString.compararString(comando, ComandosConstantes.regras))
             return;
        
-       client.sendMessage(message.from, regrasInfo);
+        await client.sendMessage(message.from, regrasInfo);
     }
 
 }
