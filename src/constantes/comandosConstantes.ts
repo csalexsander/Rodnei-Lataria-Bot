@@ -7,6 +7,7 @@ export default class ComandosConstantes {
     static sorteio: string = "/sorteio";
     static carente: string = "/carente";
     static chato: string = "/chato";
+    static atacante : string = "/atacante"
     static aviso: string = "/aviso";
     static passaro: string = "/rolas";
     static mensagemRecebida: string = "/mensagem_recebida";
