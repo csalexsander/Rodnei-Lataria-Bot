@@ -34,7 +34,7 @@ export default class ComandosConstantes {
     static editarRole : string = "/editar";
 
     //Estatistica
-    static maisFalante: string = "/mais-falante";
+    static maisFalante: string = "/mais-falantes";
 
     //Info
     static regras : string = "/regras";
