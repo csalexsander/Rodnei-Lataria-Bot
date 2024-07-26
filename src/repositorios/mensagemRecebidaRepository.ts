@@ -29,16 +29,15 @@ export default class MensagemRecebidaRepository {
             throw error;
         }
     }
-    
-    async obterRankingMensagens(date: String): Promise<RankingMensagem[] | null> {
+
+    async obterRankingMensagens(chatSerialized: string, inicio : string, fim : string): Promise<RankingMensagem[] | null> {
         try {
-            const dataAtual = moment().format("YYYY-MM-DD");
+            const sql = `SELECT contact_serialized as contactSerialized, contact_number as contactNumber, count(*) as totalMessages
+                         FROM messages where chat_serialized = ? and message_date_time >= ? 
+                         and message_date_time <= ? group by chat_serialized, contact_serialized, contact_number 
+                         order by count(*) desc;`
 
-            const sql = `SELECT contact_number, COUNT (contact_number) as contagem FROM messages
-                            GROUP BY contact_number
-                            ORDER BY contagem DESC;`
-
-            return await this.contexto.listar(sql, [dataAtual]);
+            return await this.contexto.listar(sql, [chatSerialized, inicio, fim]);
         } catch (error) {
             console.error("Ocorreu uma falha ao obter o ranking de mensagens");
             return null;

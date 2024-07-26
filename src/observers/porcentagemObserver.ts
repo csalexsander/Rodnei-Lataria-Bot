@@ -10,6 +10,7 @@ export default class PorcentagemObserver implements IMessageObserver {
     public readonly comandoPorcentagem = [
         new ChaveValorDto(ComandosConstantes.carente, "carente"),
         new ChaveValorDto(ComandosConstantes.chato, "chato"),
+        new ChaveValorDto(ComandosConstantes.atacante, "atacante")
     ];
 
     public readonly servico: PorcentagemService;
