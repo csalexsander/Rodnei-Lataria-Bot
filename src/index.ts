@@ -29,6 +29,7 @@ import RegrasObserver from "./observers/regrasObserver";
 import AjudaObserver from "./observers/ajudaObserver";
 import StickerObserver from "./observers/stickerObserver";
 import MaisFaltantesObserver from "./observers/estastisticas/maisFaltantesObserver";
+import MarcosObserver from "./observers/marcosObserver";
 
 const contexto = new Contexto();
 
@@ -43,6 +44,7 @@ messageSubscriber.CadastrarMessageObservers(new AvisoObserver());
 messageSubscriber.CadastrarMessageObservers(new PassaroObserver());
 messageSubscriber.CadastrarMessageObservers(new OversharingObserver());
 messageSubscriber.CadastrarMessageObservers(new SortearObserver());
+messageSubscriber.CadastrarMessageObservers(new MarcosObserver());
 messageSubscriber.CadastrarMessageObservers(new LuvaObserver());
 messageSubscriber.CadastrarMessageObservers(new OJogoObserver());
 messageSubscriber.CadastrarMessageObservers(new PiadaObserver());

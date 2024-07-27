@@ -13,6 +13,7 @@ export default class ComandosConstantes {
     static mensagemRecebida: string = "/mensagem_recebida";
     static overSharing : string = "/oversharing";
     static sortear : string = "/sortear";
+    static marcos : string = "/marcos";
     static nomeCientifico : string = "/streptopelias";
     static luva : string = "/luva";
     static jogo : string = "/jogo";

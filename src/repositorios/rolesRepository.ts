@@ -41,7 +41,7 @@ export default class RolesRepository {
 
     async obterRoleAPreencher(message_serialized: string, contact_serialized: string): Promise<Role | null> {
         try {
-            const sql = `SELECT * FROM roles where contact_serialized = ? and message_serialized = ?;`;
+            const sql = `SELECT * FROM roles where contact_serialized = ? and message_serialized = ? and is_visible = true;`;
 
             const params = [contact_serialized, message_serialized];
 
@@ -54,7 +54,7 @@ export default class RolesRepository {
 
     async obterRoleAPreencherAdmin(message_serialized: string): Promise<Role | null> {
         try {
-            const sql = `SELECT * FROM roles where message_serialized = ?;`;
+            const sql = `SELECT * FROM roles where message_serialized = ? and is_visible = true;`;
 
             const params = [message_serialized];
 
@@ -67,7 +67,7 @@ export default class RolesRepository {
 
     async obterRolePorId(id: string): Promise<Role | null> {
         try {
-            const sql = `SELECT * FROM roles where id = ?;`;
+            const sql = `SELECT * FROM roles where id = ? and is_visible = true;`;
 
             const params = [id];
 
@@ -82,7 +82,7 @@ export default class RolesRepository {
         try {
             const data = moment().format("YYYY-MM-DD");
 
-            const sql = `SELECT * FROM roles where sequencial = ? and date(substr(data, 7, 4) || '-' || substr(data, 4, 2) || '-' || substr(data, 1, 2)) >= ?;`;
+            const sql = `SELECT * FROM roles where sequencial = ? and date(substr(data, 7, 4) || '-' || substr(data, 4, 2) || '-' || substr(data, 1, 2)) >= ? and is_visible = true;`;
 
             const params = [sequencial, data];
 
@@ -187,7 +187,7 @@ export default class RolesRepository {
                             ON 
                               r.id = rp.eventId
                             WHERE
-                              r.sequencial = ? and date(substr(data, 7, 4) || '-' || substr(data, 4, 2) || '-' || substr(data, 1, 2)) >= ?;`;
+                              r.sequencial = ? and is_visible = true and date(substr(data, 7, 4) || '-' || substr(data, 4, 2) || '-' || substr(data, 1, 2)) >= ?;`;
 
             const params = [sequencial, data];
 
