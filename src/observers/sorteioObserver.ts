@@ -25,7 +25,7 @@ export default class SorteioObserver implements IMessageObserver {
             return;
 
         if (!UtilChat.EhChatGrupo(chat)) {
-            client.sendMessage(message.from, labels.erro.apenasGrupo);
+            client.sendMessage(message.from, labels.erro.apenasGrupo, {quotedMessageId: message.id._serialized});
             return;
         }
 
@@ -34,7 +34,7 @@ export default class SorteioObserver implements IMessageObserver {
             return;
 
         if (!requisitante.isAdmin) {
-            await client.sendMessage(message.from, "Apenas administratores podem utilizar esse comando. Evolua");
+            await client.sendMessage(message.from, "Apenas administratores podem utilizar esse comando. Evolua", {quotedMessageId: message.id._serialized});
             return;
         }
 
@@ -52,7 +52,7 @@ export default class SorteioObserver implements IMessageObserver {
 
         const singularPlural = numeros.length > 1 ? "vocês foram sorteados, e ganharam o premio:" : "você foi sorteado, e ganhou o premio:";
 
-        client.sendMessage(message.from, `Parabens @${numeros.join(", @")} ${singularPlural} ${quantidadePremioSorteio.premio}`, { mentions: [...idInterno, ...message.mentionedIds] });
+        client.sendMessage(message.from, `Parabens @${numeros.join(", @")} ${singularPlural} ${quantidadePremioSorteio.premio}`, { mentions: [...idInterno, ...message.mentionedIds], quotedMessageId: message.id._serialized });
     }
 
 }
