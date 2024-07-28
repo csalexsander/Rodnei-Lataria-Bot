@@ -13,6 +13,7 @@ export default class ComandosConstantes {
     static mensagemRecebida: string = "/mensagem_recebida";
     static overSharing : string = "/oversharing";
     static sortear : string = "/sortear";
+    static marcos : string = "/marcos";
     static nomeCientifico : string = "/streptopelias";
     static luva : string = "/luva";
     static jogo : string = "/jogo";
@@ -34,7 +35,7 @@ export default class ComandosConstantes {
     static editarRole : string = "/editar";
 
     //Estatistica
-    static maisFalante: string = "/mais-falante";
+    static maisFalante: string = "/mais-falantes";
 
     //Info
     static regras : string = "/regras";
