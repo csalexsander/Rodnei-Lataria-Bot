@@ -40,7 +40,7 @@ export default class RoleEtapaPreenchimento {
             case this.descricao:
                 return labels.role[tipo];
             default:
-                throw new Error(labels.erroMetodo);
+                throw new Error(labels.erro.metodo);
         }
     }
 }
