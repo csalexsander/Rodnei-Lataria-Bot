@@ -31,7 +31,7 @@ export default class Role {
         descricao?: string,
         sequencial?: number,
         is_edit: boolean = false,
-        is_visible: boolean = true,
+        is_visible: boolean = false,
         participantes: ParticipanteRole[] = []
     ) {
         this.id = id;

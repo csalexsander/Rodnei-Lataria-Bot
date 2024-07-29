@@ -41,7 +41,7 @@ export default class RolesRepository {
 
     async obterRoleAPreencher(message_serialized: string, contact_serialized: string): Promise<Role | null> {
         try {
-            const sql = `SELECT * FROM roles where contact_serialized = ? and message_serialized = ? and is_visible = true;`;
+            const sql = `SELECT * FROM roles where contact_serialized = ? and message_serialized = ?`;
 
             const params = [contact_serialized, message_serialized];
 
@@ -54,7 +54,7 @@ export default class RolesRepository {
 
     async obterRoleAPreencherAdmin(message_serialized: string): Promise<Role | null> {
         try {
-            const sql = `SELECT * FROM roles where message_serialized = ? and is_visible = true;`;
+            const sql = `SELECT * FROM roles where message_serialized = ?`;
 
             const params = [message_serialized];
 
