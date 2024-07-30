@@ -30,6 +30,7 @@ import AjudaObserver from "./observers/ajudaObserver";
 import StickerObserver from "./observers/stickerObserver";
 import MaisFaltantesObserver from "./observers/estastisticas/maisFaltantesObserver";
 import MarcosObserver from "./observers/marcosObserver";
+import RoleAnuncioObserver from "./observers/roles/roleAnuncioObserver";
 
 const contexto = new Contexto();
 
@@ -51,6 +52,7 @@ messageSubscriber.CadastrarMessageObservers(new PiadaObserver());
 messageSubscriber.CadastrarMessageObservers(new MaisFaltantesObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new InfoObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new RolesObserver(contexto));
+messageSubscriber.CadastrarMessageObservers(new RoleAnuncioObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new NovoObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new ParticipacaoObserver(contexto));
 messageSubscriber.CadastrarMessageObservers(new EditarRemoverObserver(contexto));

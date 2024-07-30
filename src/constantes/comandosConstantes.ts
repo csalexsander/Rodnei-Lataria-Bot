@@ -31,6 +31,7 @@ export default class ComandosConstantes {
     static miar : string = "/miar";
     static roles : string = "/roles";
     static info : string = "/info";
+    static anuncioRole : string = "/role-anuncio";
     static removerRole : string = "/remover";
     static editarRole : string = "/editar";
 

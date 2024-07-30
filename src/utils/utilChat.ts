@@ -16,6 +16,6 @@ export default class UtilChat {
         if (process.env.NODE_ENV == 'development') {
             return chat.name == 'Teste';
         }
-        return UtilChat.EhChatGrupo(chat); //&& chatsLiberados.some(x => x === chat.id._serialized);
+        return UtilChat.EhChatGrupo(chat) && chatsLiberados.some(x => x === chat.id._serialized);
     }
 }

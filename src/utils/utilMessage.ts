@@ -16,7 +16,7 @@ export default class UtilMessage {
     }
 
     static ObterCorpoMensagem(message: Message): string | null {
-        const regex = /^\/\w+\s*(.*)$/;
+        const regex = /^\/[\w-]+\s*(.*)$/;
 
         const match = message.body.match(regex);
 

@@ -21,7 +21,7 @@ const client = new Client({
       },
 });
 
-const chatsGrupoAutorizados = ["120363291205486002@g.us", "120363292454808888@g.us"];
+const chatsGrupoAutorizados = ["120363291205486002@g.us", "120363292454808888@g.us", "120363042079438588@g.us"];
 
 let messageSubscriber: MessageSubscriber;
 let notificationSubscriber: NotificationSubscriber;
