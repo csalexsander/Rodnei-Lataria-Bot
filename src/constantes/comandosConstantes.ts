@@ -25,6 +25,8 @@ export default class ComandosConstantes {
 
     static sticker: string = "/sticker";
 
+    static cancelar: string = "/cancelar";
+
     //Roles
     static novoRole : string = "/novo";
     static confirmar : string = "/confirmar";
