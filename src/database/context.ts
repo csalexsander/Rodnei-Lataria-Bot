@@ -13,6 +13,12 @@ export default class Contexto {
                 driver: sqlite3.Database,
             });
 
+            if (process.env.NODE_ENV == 'development') {            
+                this.db.on('trace', function (sql : string) {
+                    console.log(sql);
+                });
+            }
+
             console.log("conexão aberta");
         } catch (error: unknown) {
             console.error("falha ao abrir conexão", error);
@@ -169,8 +175,8 @@ export default class Contexto {
 
             const result = await this.db.get(sql, parametros);
 
-            console.log(`Dados obtidos com sucesso: ${sql}`);
-
+            console.log(`Dados obtidos com sucesso`);
+            
             return result as T;
         } catch (error) {
             console.error("Falha ao tentar obter dados");
@@ -190,7 +196,7 @@ export default class Contexto {
             else
                 result = await this.db.all(sql);
 
-            console.log(`Dados obtidos com sucesso: ${sql}`);
+            console.log(`Dados obtidos com sucesso: ${sql}`, result);
 
             return result;
         } catch (error) {

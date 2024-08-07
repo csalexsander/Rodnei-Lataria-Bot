@@ -23,7 +23,8 @@ export const labels: { [key: string]: { [key: string]: any } } = {
     erro: {
         metodo: "Método chamado indevidamente",
         apenasPrivado: "⚠ Este comando somente funciona no *privado do bot* ⚠",
-        apenasGrupo: "⚠ Este comando apenas funciona em *grupos* ⚠"
+        apenasGrupo: "⚠ Este comando apenas funciona em *grupos* ⚠",
+        perfilNaoCriado: "⚠ O uso do bot é permitido apenas para membros com perfil criado. Chame este bot no PV, digite */perfil*, e siga as instruções."
     },
     ranking: {
         nenhumDado: (mes : string) => `⚠ Nenhum dado de Ranking Encontrado para o mes de ${mes} ⚠`,

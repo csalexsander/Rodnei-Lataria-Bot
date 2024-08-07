@@ -6,16 +6,17 @@ export default class UtilChat {
     }
 
     static EhChatGrupoValido(chat: Chat, chatsLiberados: string[]): boolean {
+        if (process.env.NODE_ENV == 'development') {
+            return chat.name == 'Teste';
+        }
+
         if (!chat)
             return false;
 
         if (!UtilChat.EhChatGrupo(chat))
             return true;
-
+        
         //TODO Revisar, removido validação temporariamente.
-        if (process.env.NODE_ENV == 'development') {
-            return chat.name == 'Teste';
-        }
         return UtilChat.EhChatGrupo(chat); //&& chatsLiberados.some(x => x === chat.id._serialized);
     }
 }
