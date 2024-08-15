@@ -1,0 +1,12 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    volumes:
+      - .:/app # Descomentar em caso de execução ao vivo
+      #- ./.wwebjs_auth:/app/.wwebjs_auth # Descomentar em caso de somente usar os dados mutáveis da aplicação
+      #- ./database/mydatabase.db:/app/database/mydatabase.db # Descomentar em caso de somente usar os dados mutáveis da aplicação
+    working_dir: /app
