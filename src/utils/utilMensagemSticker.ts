@@ -8,7 +8,7 @@ export default class UtilMensagemSticker {
             args: ['--no-sandbox', '--disable-setuid-sandbox']
         });
         const page = await browser.newPage();
-        const html = fs.readFileSync('src/assets/static/index.html', 'utf8');
+        const html = fs.readFileSync('src/assets/static/stickerMensagem.html', 'utf8');
         await page.setContent(html);
 
         arrayMensagens = arrayMensagens.map((e: { mensagem: any; }) => {

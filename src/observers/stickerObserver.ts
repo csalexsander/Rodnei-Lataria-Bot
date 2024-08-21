@@ -45,25 +45,23 @@ export default class StickerObserver implements IMessageObserver {
 
             if (!quotedMsg.hasMedia) {
                 // Gera um sticker da mensagem
-
-                const nivelMaximo = (n => n >= 1 && n <= 3 ? n : 3)(+message.body.replace(comando, '').trim()[0]);
+                const nivelMaximo = (n => n >= 1 && n <= 3 ? n : 1)(+message.body.replace(comando, '').trim()[0]);
                 const arrayMensagens: { imagem: string; usuario: string; mensagem: string; horaMensagem: string }[] = [];
 
                 let mensagemAtual = quotedMsg;
                 let nivel = 1;
 
                 while (mensagemAtual && mensagemAtual.body && nivel <= nivelMaximo) {
-                    const fotoPerfilUrl = await client.getProfilePicUrl(mensagemAtual.author || mensagemAtual.from);
-                    const contato = await client.getContactById(mensagemAtual.author || mensagemAtual.from);
-
-                    const nomeUsuario = contato.pushname || contato.name || 'Desconhecido';
+                    const contato = await mensagemAtual.getContact();
+                    const fotoPerfilUrl = await client.getProfilePicUrl(`${contato.id.user}@${contato.id.server}`);
+                    const nomeUsuario = contato.pushname || contato.name || client.info.pushname;
                     const corpoMensagem = mensagemAtual.body || '_Mensagem indisponível_';
                     const horaMensagem = '23:99'; // API maldita não retorna a hora certa
 
                     let processedMessage = corpoMensagem;
                     for (const mentionedId of mensagemAtual.mentionedIds) {
                       const contatoMencao = await client.getContactById(mentionedId._serialized);
-                      const contatoMencaoNome = contatoMencao.pushname || contatoMencao.name || contatoMencao.number;
+                      const contatoMencaoNome = contatoMencao.pushname || contatoMencao.name || client.info.pushname;
                       processedMessage = processedMessage.replace(new RegExp(`@${contatoMencao.number}`, 'g'), `<span style="color: lightblue">@${contatoMencaoNome}</span>`);
                     }
 
