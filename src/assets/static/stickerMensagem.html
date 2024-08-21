@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+    html {
+      box-sizing: border-box;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+    body {
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+      font-family: "Roboto", sans-serif;
+      margin: 0;
+      padding: 0;
+      max-width: 400px;
+      display: flex;
+    }
+    .message {
+      color: #fff;
+      clear: both;
+      /* line-height: 18px; */
+      font-size: 34px;
+      padding: 8px 20px 12px 20px;
+      position: relative;
+      margin: 0 0 10px 0;
+      max-width: 90%;
+      word-wrap: break-word;
+      z-index: -1;
+      margin-left: 56px;
+    }
+    .message:after {
+      position: absolute;
+      content: "";
+      width: 0;
+      height: 0;
+      border-style: solid;
+    }
+    .metadata {
+      float: right;
+      padding: 0 0 0 7px;
+      position: relative;
+      bottom: -4px;
+    }
+    .metadata .time {
+      color: #fff;
+      font-size: 20px;
+      display: inline-block;
+    }
+    .message.received {
+      background: #1f2c34;
+      border-radius: 0px 24px 24px 24px;
+      float: left;
+    }
+    .message.received .metadata {
+      padding: 0 0 0 16px;
+    }
+    .message.received:after {
+      border-width: 0px 10px 10px 0;
+      border-color: transparent #1f2c34 transparent transparent;
+      top: 0;
+      left: -10px;
+    }
+    .username {
+      display: block;
+      margin-bottom: 8px;
+    }
+    .avatar {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      left: -56px;
+      top: 0px;
+      position: absolute;
+    }
+  </style>
+</head>
+<body>
+  <div id="conversation"></div>
+</body>
+</html>
