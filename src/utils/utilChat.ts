@@ -6,6 +6,8 @@ export default class UtilChat {
     }
 
     static EhChatGrupoValido(chat: Chat, chatsLiberados: string[]): boolean {
+        //WIP: se em modo desenvolvimento, só vai funcionar em um grupo chamado "Teste".
+        //No futuro, mapear o grupo do Boterinha, e os IDs dos contatos pra usar no PV.
         if (process.env.NODE_ENV == 'development') {
             return chat.name == 'Teste';
         }

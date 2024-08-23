@@ -196,7 +196,7 @@ export default class Contexto {
             else
                 result = await this.db.all(sql);
 
-            console.log(`Dados obtidos com sucesso: ${sql}`, result);
+            console.log(`Dados obtidos com sucesso`);
 
             return result;
         } catch (error) {
