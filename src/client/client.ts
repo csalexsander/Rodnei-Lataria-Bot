@@ -21,7 +21,17 @@ const client = new Client({
       },
 });
 
-const chatsGrupoAutorizados = ["120363291205486002@g.us", "120363292454808888@g.us"];
+const chatsGrupoAutorizados = [
+    "120363292454808888@g.us",
+    "120363029696309183@g.us",//OtakuGamerinha ðŸ¤“
+    "120363042128364074@g.us",//JudiciÃ¡rio Galerinha
+    "120363147293284391@g.us",//Leiturinha ðŸ“–
+    "120363162044765419@g.us",//Marombeirinha
+    "120363162635050806@g.us",//Musicalerinha ðŸ”ŠðŸŽ¹ðŸ¥
+    "120363218228606829@g.us",//Audiovisualerinha
+    "120363291205486002@g.us",//Boterinha
+    "120363307488072736@g.us",//Pinturinha
+];
 
 let messageSubscriber: MessageSubscriber;
 let notificationSubscriber: NotificationSubscriber;
@@ -40,8 +50,9 @@ client.on(Events.QR_RECEIVED, qr => {
 client.on(Events.MESSAGE_RECEIVED, async message => {
     try {
         const chat = await message.getChat()
+        const contact = await message.getContact();
 
-        if(!UtilChat.EhChatGrupoValido(chat, chatsGrupoAutorizados))
+        if(!UtilChat.EhChatGrupoValido(contact, chat, chatsGrupoAutorizados))
             return;
 
         messageSubscriber.NotificarMessageObservers(message, client);
