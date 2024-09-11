@@ -65,8 +65,16 @@ export default class MessageSubscriber {
         if (UtilMessage.EhComandoValido(comando)) {
             const contato = await mensagem.getContact();        
             var perfil = await this.perfilRepository.obterPerfilContato(contato.id._serialized);
-            //Se possui perfil, permitir processar o comando.
-            return perfil != null && perfil.nome != null;
+            //Se possui perfil completo, permitir processar o comando.
+            return perfil != null 
+                && perfil.nome != null
+                && perfil.relacionamento != null
+                && perfil.flerte != null
+                && perfil.nascimento != null
+                && perfil.orientacao != null
+                && perfil.roles != null
+                && perfil.melhorlugar != null
+                && perfil.insta != null;
         }
 
         return false;
