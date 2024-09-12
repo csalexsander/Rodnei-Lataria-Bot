@@ -50,9 +50,8 @@ client.on(Events.QR_RECEIVED, qr => {
 client.on(Events.MESSAGE_RECEIVED, async message => {
     try {
         const chat = await message.getChat()
-        const contact = await message.getContact();
 
-        if(!UtilChat.EhChatGrupoValido(contact, chat, chatsGrupoAutorizados))
+        if(!UtilChat.EhChatGrupoValido(chat, chatsGrupoAutorizados))
             return;
 
         messageSubscriber.NotificarMessageObservers(message, client);

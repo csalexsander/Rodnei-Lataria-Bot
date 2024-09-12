@@ -6,7 +6,7 @@ export default class UtilMessage {
         const regex = /^\/([^\s]+)(?:\s+(.+))?$/;
 
         let invisibleCharactersRegex = /‎/g;
-        const stringTratada = message.body.replace(invisibleCharactersRegex, "");
+        const stringTratada = message.body.replace(invisibleCharactersRegex, "").toLowerCase();
 
         const match = regex.exec(stringTratada);
 
