@@ -35,7 +35,10 @@ export default class Perfil {
     }
 
     static obterResumoPerfil(perfil: Perfil): string {
-        const dataNascimento = moment(perfil.nascimento);
+        const dtNascimentoPerfil = perfil.nascimento && perfil.nascimento.indexOf('T') > 0 ? 
+                    perfil.nascimento?.split('T')[0] : "";
+
+        const dataNascimento = moment(dtNascimentoPerfil);
         const dataNascimentoValor = dataNascimento.isValid() ? dataNascimento.format("DD/MM") : "Não Informado";
         return `*PERFIL*\n\n*${labels.perfil.nome}*\n${UtilString.valorOuNaoInformado(perfil.nome)}\n\n` +
             `*${labels.perfil.relacionamento}*\n${UtilString.valorOuNaoInformado(perfil.relacionamento)}\n\n` + 
