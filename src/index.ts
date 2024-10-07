@@ -36,7 +36,7 @@ const contexto = new Contexto();
 
 cadastrarContexto(contexto);
 
-const messageSubscriber = new MessageSubscriber();
+const messageSubscriber = new MessageSubscriber(contexto);
 
 messageSubscriber.CadastrarMessageObservers(new PongObserver());
 messageSubscriber.CadastrarMessageObservers(new PorcentagemObserver());
