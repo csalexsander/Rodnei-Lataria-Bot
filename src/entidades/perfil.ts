@@ -6,7 +6,7 @@ import { labels } from "../constantes/uiConstantes";
 export default class Perfil {
     contactSerialized: string;
     contactNumber: string;
-    messageSerialized: string;
+    messageSerialized: string | null;
     tipoPreenchimento: string;
     nome: string | null;
     relacionamento: string | null;
